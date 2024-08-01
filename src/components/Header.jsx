@@ -1,4 +1,5 @@
+import styles from "./header.module.css";
 const Header = () => {
-  return <h1>My Todo App</h1>;
+  return <div className={styles.header}>My Todo App</div>;
 };
 export default Header;
