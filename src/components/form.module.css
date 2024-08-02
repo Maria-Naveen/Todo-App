@@ -1,0 +1,28 @@
+.todoform {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.inputText {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+}
+.inputText:focus {
+  display: inline-block;
+  outline: none;
+}
+.submitBtn {
+  border: none;
+  border-radius: 5px;
+  padding: 6px 14px;
+  background-color: #00ccff;
+}
+
+.todoContainer {
+  display: flex;
+}
