@@ -27,3 +27,8 @@
 .todoContainer {
   display: flex;
 }
+
+.errorMessage {
+  color: red; /* Red color for error messages */
+  margin-top: 10px; /* Space above the error message */
+}

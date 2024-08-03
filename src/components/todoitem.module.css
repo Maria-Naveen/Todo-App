@@ -22,3 +22,7 @@
   border-radius: 5px;
   padding: 6px 14px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
