@@ -1,5 +1,8 @@
+import { useState } from "react";
 import styles from "./todoitem.module.css";
 const TodoItem = ({ item, todos, setTodos }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newName, setNewName] = useState(item.name);
   const handleDelete = (item) => {
     console.log("Delete button clicked for item", item);
     setTodos(todos.filter((todo) => todo !== item));
@@ -13,14 +16,44 @@ const TodoItem = ({ item, todos, setTodos }) => {
     setTodos(newTodos);
   };
 
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+  const handleSave = () => {
+    const newTodos = todos.map((todo) =>
+      todo === item ? { ...todo, name: newName } : todo
+    );
+
+    setTodos(newTodos);
+    setIsEditing(false);
+  };
   const completed = item.done ? styles.completed : "";
   return (
     <div className={styles.todoitem}>
       <div className={styles.todoitemName}>
-        <span className={completed} onClick={() => handleClick(item.name)}>
-          {item.name}
-        </span>
+        {isEditing ? (
+          <input
+            className={styles.editInput}
+            type="text"
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+          />
+        ) : (
+          <span className={completed} onClick={() => handleClick(item.name)}>
+            {item.name}
+          </span>
+        )}
+
         <span>
+          {isEditing ? (
+            <button className={styles.saveButton} onClick={handleSave}>
+              Save
+            </button>
+          ) : (
+            <button className={styles.editButton} onClick={handleEdit}>
+              Edit
+            </button>
+          )}
           <button
             onClick={() => handleDelete(item)}
             className={styles.deleteButton}
