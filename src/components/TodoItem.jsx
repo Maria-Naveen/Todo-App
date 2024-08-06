@@ -1,5 +1,8 @@
 import { useState } from "react";
 import styles from "./todoitem.module.css";
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { ImBookmark } from "react-icons/im";
 const TodoItem = ({ item, todos, setTodos }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState(item.name);
@@ -46,20 +49,15 @@ const TodoItem = ({ item, todos, setTodos }) => {
 
         <span>
           {isEditing ? (
-            <button className={styles.saveButton} onClick={handleSave}>
-              Save
-            </button>
+            <ImBookmark className={styles.saveButton} onClick={handleSave} />
           ) : (
-            <button className={styles.editButton} onClick={handleEdit}>
-              Edit
-            </button>
+            <MdEdit className={styles.editButton} onClick={handleEdit} />
           )}
-          <button
+
+          <MdDelete
             onClick={() => handleDelete(item)}
             className={styles.deleteButton}
-          >
-            X
-          </button>
+          />
         </span>
       </div>
       <hr className={styles.line} />

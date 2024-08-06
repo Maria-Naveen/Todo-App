@@ -21,7 +21,7 @@
   cursor: pointer;
   border-radius: 5px;
   padding: 6px 14px;
-  background-color: #00ccff;
+  background-color: #f7ca18;
 }
 
 .todoContainer {
@@ -31,4 +31,10 @@
 .errorMessage {
   color: red; /* Red color for error messages */
   margin-top: 10px; /* Space above the error message */
+}
+
+@media screen and (max-width: 560px) {
+  .todoform {
+    width: 400px;
+  }
 }
